@@ -1,0 +1,37 @@
+.quesitonBox {
+    margin: 10px;
+    background-color: #F8F9FB;
+    width: 450px;
+    height: min-content;
+    display: flex;
+    flex-direction: column  ;
+    align-items: left;
+  }
+
+
+
+.questionHeading{
+    background-color: #F0F0F2;
+    padding: 5px;
+
+}
+.question-text {
+    margin:4px;
+  }
+.answersection{
+    background-color: #F8F9FB;
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    padding: 2%;
+    justify-content: space-between;
+}
+.answerbutton{
+    font-size: 16px;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin: 5px 0 5px;
+}
