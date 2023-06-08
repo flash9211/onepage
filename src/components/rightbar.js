@@ -1,22 +1,15 @@
 import './RightBar.css'
-import {useReducer} from 'react';
 import questions from '../data/questionbank';
-import questionsReducer from '../store/reducer';
-import { initialState } from '../store/reducer';
-
+import {useDispatch, useSelector} from 'react-redux';
+import { setCurrentQuestion } from '../store/questionReducer';
 
 function RightBar(){
-
-    const [state, dispatch]= useReducer(questionsReducer, initialState);     
-    
-    function test(question) {
-        console.log('hi')
-        dispatch({type : 'SETCURRENTQUESTION' , payload:{id:question.id}})
-    }
-
+    const store = useSelector((store)=>store.counter)
+    console.log(store)
+    const dispatch = useDispatch();  
     return (
         <>
-                <div className='rightsidebar'>
+            <div className='rightsidebar'>
                 <div className='about'>
                     <img className='profileimg' src={'https://picsum.photos/id/1/160/90'} alt='Profile'/>
                     <p>Profile Name</p>
@@ -34,7 +27,7 @@ function RightBar(){
                         questions.map(question=>
                         <button className='qbutton'  
                                 key={question.id}
-                                onClick={()=> test(question)}>{question.id}</button>)
+                                onClick={()=> dispatch(setCurrentQuestion(question))}>{question.id}</button>)
                     } 
                 </div>
             </div>

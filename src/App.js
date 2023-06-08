@@ -3,8 +3,6 @@ import './App.css';
 import QsBox from './components/QsBox';
 import InfoBlock from './components/InfoBlock';
 import RightBar from './components/rightbar';
-
-
 function App() {
   return (
     <>
