@@ -1,3 +1,4 @@
+import axios from '../_mockAPIs/axios';
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -23,5 +24,15 @@ export const counterSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { setCurrentQuestion ,decrement, incrementByAmount } = counterSlice.actions
+
+export const fetchBlogPosts = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/api/data/blog/BlogPosts');
+    console.log(response.data)
+    dispatch(setCurrentQuestion(response.data));
+  } catch (err) {
+    throw new Error();
+  }
+};
 
 export default counterSlice.reducer
