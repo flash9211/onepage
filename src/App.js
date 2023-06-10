@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 // import { useState } from 'react';
 import QsBox from './components/QsBox';
 import InfoBlock from './components/InfoBlock';
