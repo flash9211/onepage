@@ -1,21 +1,15 @@
-import './QsBox.css'
-import './FourthBlock.css'
-import { useEffect, useReducer} from 'react';
+import '../css/QsBox.css'
+import '../css/FourthBlock.css'
 import questions from '../data/questionbank';
-import questionsReducer from '../store/reducer';
-import { initialState } from '../store/reducer';
-
+import { useSelector, useDispatch } from 'react-redux'
 
 
 function QsBox() {
-    // const [currentQuestion, setCurrentQuestion] = useState(0);  
-    const [state, dispatch] = useReducer(questionsReducer, initialState);
-    // console.log(state)
-    // console.log(state.currentQuestion)
-    var currentQuestion = questions.find(question => question.id === state.currentQuestion);
-    // console.log(currentQuestion)
+    const store = useSelector((state) => state.counter1)
+    const dispatch = useDispatch()
+    console.log("state",store)
 
-
+    var currentQuestion = questions.find(question => question.id === store.currentQuestion);
 
     return (
         <>
@@ -31,12 +25,6 @@ function QsBox() {
             </div>
             <div className='fourth'>
                 <button className='Save' onClick={()=>dispatch({ type: 'NEXT' })}>Save & Next</button>
-                {/* use math.min or ternary operator here */}
-                {/* ()=>setCurrentQuestion(currentQuestion+1) *
-            dispatch({type:'next', payload : currentQuestion})/}
-            {/* {
-                console.log(value)
-            } */}
             </div>
         </>
     );
