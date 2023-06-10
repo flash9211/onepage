@@ -1,18 +1,27 @@
 import React, { useEffect } from 'react';
 import '../css/QsBox.css'
 import '../css/FourthBlock.css'
-import questions from '../data/questionbank';
+// import questions from '../data/questionbank';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchBlogPosts } from '../store/queationReducer';
+import { setNextQuestion, setQuestionSate } from '../store/queationReducer'
+import questions from './questionbank';
+import { current } from '@reduxjs/toolkit';
 
 function QsBox() {
-    const store = useSelector((state) => state.counter1)
+    const store = useSelector((state) => state.counter)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchBlogPosts());
-      }, [dispatch]);
+    }, [dispatch]);
 
-    var currentQuestion = questions.find(question => question.id === store.currentQuestion);
+    function onClickHandler(question) {
+        dispatch(setNextQuestion()) 
+        dispatch(setQuestionSate({id:question.id, state:2})) 
+    }
+    // let currentQuestion = store.questions
+    
+    var currentQuestion = store.questions.find(question => question.id === store.currentQuestion);
 
     return (
         <>
@@ -27,7 +36,7 @@ function QsBox() {
                 </div>
             </div>
             <div className='fourth'>
-                <button className='Save' onClick={()=>dispatch({ type: 'NEXT' })}>Save & Next</button>
+                <button className='Save' onClick={()=>onClickHandler(currentQuestion)}>Save & Next</button>
             </div>
         </>
     );

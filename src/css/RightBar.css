@@ -76,10 +76,15 @@
     font-family: Arial;
     color: #ffffff;
     font-size: 15px;
-    background: #FE5958;
     padding: 6px 10px 6px 10px;
     border: 0;
 }
-.qbutton:hover{
-    background: #d24949;
+.red{
+    background: #FE5958;
+}
+.green{
+    background: #12d53c;
+}
+.blue{
+    background: #0356ae;
 }

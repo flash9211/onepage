@@ -3,6 +3,6 @@ import queationReducer from './queationReducer'
 
 export const store = configureStore({
   reducer: {
-    counter1: queationReducer,
+    counter: queationReducer,
   },
 })
