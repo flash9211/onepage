@@ -1,15 +1,16 @@
 import './RightBar.css'
+import {useReducer} from 'react';
 import questions from '../data/questionbank';
-import {useDispatch, useSelector} from 'react-redux';
-import { setCurrentQuestion } from '../store/questionReducer';
+import questionsReducer from '../store/reducer';
+import { initialState } from '../store/reducer';
 
 function RightBar(){
-    const store = useSelector((store)=>store.counter)
-    console.log(store)
-    const dispatch = useDispatch();  
-    function handleClick(question)
-    {
-        dispatch(setCurrentQuestion(question))
+
+    const [state, dispatch]= useReducer(questionsReducer, initialState);     
+    
+    function test(question) {
+        console.log('hi')
+        dispatch({type : 'SETCURRENTQUESTION' , payload:{id:question.id}})
     }
     return (
         <>
@@ -29,9 +30,9 @@ function RightBar(){
                     <p>Questions : </p>
                     {
                         questions.map(question=>
-                        <button className='qbutton'  
+                        <button className={`qbutton ${question.state===undefined?'red ':question.state===1?'blue ':'green'}`}
                                 key={question.id}
-                                onClick={()=>handleClick(question)}>{question.id}</button>)
+                                onClick={()=> test(question)}>{question.id}</button>)
                     } 
                 </div>
             </div>

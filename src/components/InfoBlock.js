@@ -1,4 +1,4 @@
-import './InfoBlock.css'
+import '../css/InfoBlock.css'
 
 function InfoBlock(){
 

@@ -1,4 +1,4 @@
-import './FourthBlock.css'
+import '../css/FourthBlock.css'
 
 function FourthBlock()
 {
