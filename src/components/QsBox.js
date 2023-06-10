@@ -9,7 +9,6 @@ import { nextQuestion } from '../store/questionReducer';
 function QsBox() {
     const store = useSelector((store)=> store.counter)  
     const dispatch = useDispatch()
-    console.log("store", store)
     var currentQuestion = questions.find(question => question.id === store.currentQuestion);
 
     return (

@@ -7,6 +7,10 @@ function RightBar(){
     const store = useSelector((store)=>store.counter)
     console.log(store)
     const dispatch = useDispatch();  
+    function handleClick(question)
+    {
+        dispatch(setCurrentQuestion(question))
+    }
     return (
         <>
             <div className='rightsidebar'>
@@ -27,7 +31,7 @@ function RightBar(){
                         questions.map(question=>
                         <button className='qbutton'  
                                 key={question.id}
-                                onClick={()=> dispatch(setCurrentQuestion(question))}>{question.id}</button>)
+                                onClick={()=>handleClick(question)}>{question.id}</button>)
                     } 
                 </div>
             </div>
